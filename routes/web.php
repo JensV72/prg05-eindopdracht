@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\ContactController;
+;
+
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/contact/{name}',[ContactController::class, 'name'])->name('contact');
+Route::get('/team',[TeamController::class, 'name'])->name('team');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

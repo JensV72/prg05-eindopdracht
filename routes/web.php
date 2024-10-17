@@ -3,13 +3,14 @@
 ;
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\TeamController;
+use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/team',[TeamController::class, 'name'])->name('team');
+Route::resource('players', PlayerController::class);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

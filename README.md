@@ -1,4 +1,4 @@
-<p align="center"><img src="public/images/Team_fainort_logo.png" width="200" alt="Team fainort logo"></p>
+<p align="center"><img src="resources/images/Team_fainort_logo.png" width="200" alt="Team fainort logo"></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -9,8 +9,9 @@
 
 ## Changelog
     14/10/2024
-
     ERD gemaakt
+<img src="resources/images/erd_team_fainort.png" width="550" alt="erd">
+    
 ####
     15/10/2024
     header en footer geaamkt met partials en components

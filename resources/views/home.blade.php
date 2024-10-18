@@ -1,5 +1,5 @@
 <x-layout title="Home">
-Dit is de teams pagina
+Dit is de home pagina
 </x-layout>
 
 

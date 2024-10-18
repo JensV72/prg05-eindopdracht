@@ -12,7 +12,9 @@
 </head>
 <body>
 @include('layouts.header')
-{{$slot}}
+<div class="flex items-center justify-between">
+    {{$slot}}
+</div>
 @include('layouts.footer')
 </body>
 </html>

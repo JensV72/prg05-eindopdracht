@@ -1,5 +1,4 @@
-@foreach ($attackers as $attacker)
-    <div
+ <div
         class="bg-white dark:bg-gray-800 border border-gray-300 rounded-lg shadow-md overflow-hidden w-48  max-w-sm transition-transform duration-300 hover:scale-105">
         <a href="{{ route('players.show', $attacker->id) }}">
             <img class="w-full h-48 object-cover rounded-t-lg"
@@ -11,4 +10,4 @@
             </h5>
         </div>
     </div>
-@endforeach
+

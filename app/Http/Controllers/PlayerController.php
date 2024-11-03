@@ -17,28 +17,24 @@ class PlayerController extends Controller
         $positionId = $request->input('position_id');
         $positions = Position::all();
 
-        if ($positionId) {
-            $players = Player::where('position_id', $positionId)->get();
-        } else {
-            $players = Player::all();
+        $players = Player::all();
+        if(request()->has('search')){
+            $players=$players->where('firstname','like',request()->get('search',''));
         }
+        $keepers = $players->where('position_id', 1);
+        $defenders = $players->where('position_id', 2);
+        $midfielders = $players->where('position_id', 3);
+        $attackers = $players->where('position_id', 4);
 
-        $keepers = $players->filter(function (\App\Models\Player $value) {
-            return $value->position_id == 1;});
-        $defenders = $players->filter(function (\App\Models\Player $value) {
-            return $value->position_id == 2;});
-        $midfielders = $players->filter(function (\App\Models\Player $value) {
-            return $value->position_id == 3;});
-        $attackers = $players->filter(function (\App\Models\Player $value) {
-            return $value->position_id == 4;});
-        return view('players.team',[
-            'keepers'=>$keepers,
+        return view('players.team', [
+            'keepers' => $keepers,
             'players' => $players,
-            'defenders'=>$defenders,
-            'midfielders'=>$midfielders,
-            'attackers'=>$attackers,
+            'defenders' => $defenders,
+            'midfielders' => $midfielders,
+            'attackers' => $attackers,
             'selectedPosition' => $positionId,
-            'positions'=>$positions]);
+            'positions' => $positions,
+        ]);
     }
 
     /**

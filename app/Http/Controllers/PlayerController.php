@@ -12,9 +12,17 @@ class PlayerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $players = Player::all();
+        $positionId = $request->input('position_id');
+        $positions = Position::all();
+
+        if ($positionId) {
+            $players = Player::where('position_id', $positionId)->get();
+        } else {
+            $players = Player::all();
+        }
+
         $keepers = $players->filter(function (\App\Models\Player $value) {
             return $value->position_id == 1;});
         $defenders = $players->filter(function (\App\Models\Player $value) {
@@ -23,7 +31,14 @@ class PlayerController extends Controller
             return $value->position_id == 3;});
         $attackers = $players->filter(function (\App\Models\Player $value) {
             return $value->position_id == 4;});
-        return view('players.team',['keepers'=>$keepers,'defenders'=>$defenders,'midfielders'=>$midfielders,'attackers'=>$attackers,'positions'=>Position::all()]);
+        return view('players.team',[
+            'keepers'=>$keepers,
+            'players' => $players,
+            'defenders'=>$defenders,
+            'midfielders'=>$midfielders,
+            'attackers'=>$attackers,
+            'selectedPosition' => $positionId,
+            'positions'=>$positions]);
     }
 
     /**
@@ -47,7 +62,8 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        return view('playerdetails',['player'=>$player]);//
+
+        return view('players.details',['player'=>$player]);//
     }
 
     /**

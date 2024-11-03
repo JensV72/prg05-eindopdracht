@@ -17,21 +17,18 @@ class PlayerController extends Controller
         $positionId = $request->input('position_id');
         $positions = Position::all();
 
-        $players = Player::all();
-        if(request()->has('search')){
-            $players=$players->where('firstname','like',request()->get('search',''));
+        $players = $positionId ? Player::where('position_id', $positionId) : Player::query();
+
+
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            $players = $players->where('firstname', 'like', '%' . $searchTerm . '%')->orWhere('lastname', 'like', '%' . $searchTerm . '%');
         }
-        $keepers = $players->where('position_id', 1);
-        $defenders = $players->where('position_id', 2);
-        $midfielders = $players->where('position_id', 3);
-        $attackers = $players->where('position_id', 4);
+
+        $players = $players->get();
 
         return view('players.team', [
-            'keepers' => $keepers,
             'players' => $players,
-            'defenders' => $defenders,
-            'midfielders' => $midfielders,
-            'attackers' => $attackers,
             'selectedPosition' => $positionId,
             'positions' => $positions,
         ]);

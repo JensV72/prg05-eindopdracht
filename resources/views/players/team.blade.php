@@ -31,30 +31,15 @@
                 </x-searchbar>
             </div>
         </section>
-
         @if($selectedPosition)
             <section class="mb-12">
                 <h1 class="text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl dark:text-white mb-6 text-center">
                     {{ $positions->firstWhere('id', $selectedPosition)->name }}
                 </h1>
                 <div class="flex flex-wrap justify-center gap-6">
-                    @if ($selectedPosition == 1)
-                    @foreach ($keepers as $keeper)
-                        @include('components.keeper-card', ['keeper' => $keeper])
+                    @foreach ($players as $player)
+                        @include('components.player-card', ['player' => $player])
                     @endforeach
-                    @elseif ($selectedPosition == 2)
-                    @foreach ($defenders as $defender)
-                        @include('components.defender-card', ['defender' => $defender])
-                    @endforeach
-                    @elseif ($selectedPosition == 3)
-                    @foreach ($midfielders as $midfielder)
-                        @include('components.midfielder-card', ['midfielder' => $midfielder])
-                    @endforeach
-                    @elseif ($selectedPosition == 4)
-                    @foreach ($attackers as $attacker)
-                        @include('components.attacker-card', ['attacker' => $attacker])
-                    @endforeach
-                    @endif
                 </div>
             </section>
         @else
@@ -64,23 +49,9 @@
                         {{ $position->name }}
                     </h1>
                     <div class="flex flex-wrap justify-center gap-6">
-                        @if ($position->id == 1)
-                        @foreach ($keepers as $keeper)
-                            @include('components.keeper-card', ['keeper' => $keeper])
+                        @foreach ($players->where('position_id', $position->id) as $player)
+                            @include('components.player-card', ['player' => $player])
                         @endforeach
-                        @elseif ($position->id == 2)
-                        @foreach ($defenders as $defender)
-                            @include('components.defender-card', ['defender' => $defender])
-                        @endforeach
-                        @elseif ($position->id == 3)
-                        @foreach ($midfielders as $midfielder)
-                            @include('components.midfielder-card', ['midfielder' => $midfielder])
-                        @endforeach
-                        @elseif ($position->id == 4)
-                        @foreach ($attackers as $attacker)
-                            @include('components.attacker-card', ['attacker' => $attacker])
-                        @endforeach
-                        @endif
                     </div>
                 </section>
             @endforeach

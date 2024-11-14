@@ -12,9 +12,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('players', PlayerController::class);
 
-
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -27,7 +27,7 @@ class PlayerController extends Controller
 
         $players = $players->get();
 
-        return view('players.team', [
+        return view('players.index', [
             'players' => $players,
             'selectedPosition' => $positionId,
             'positions' => $positions,
@@ -39,7 +39,7 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        //
+        return view('players.create');
     }
 
     /**
@@ -47,7 +47,13 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        Player::create([
+//            'firstname' => '',
+//            'lastname' => '',
+//            'user_id' => '',
+//            'goals' => '',
+//            'assist' => '',
+//        ]);
     }
 
     /**
@@ -56,7 +62,7 @@ class PlayerController extends Controller
     public function show(Player $player)
     {
 
-        return view('players.details',['player'=>$player]);//
+        return view('players.show',['player'=>$player]);//
     }
 
     /**

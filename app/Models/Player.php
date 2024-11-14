@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Player extends Model
 {
+//    protected $fillable = ['']
     public function position()
     {
         return $this->belongsTo(Position::class);

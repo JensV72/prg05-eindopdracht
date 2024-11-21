@@ -47,13 +47,15 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-//        Player::create([
-//            'firstname' => '',
-//            'lastname' => '',
-//            'user_id' => '',
-//            'goals' => '',
-//            'assist' => '',
-//        ]);
+        Player::create([
+            'firstname' => request('firstname'),
+            'lastname' => request('lastname'),
+            'user_id' => 1,
+            'position_id' => request('position_id'),
+            'goals' => request('goals'),
+            'assist' => request('assist'),
+        ]);
+        return redirect()->route('players.index');
     }
 
     /**

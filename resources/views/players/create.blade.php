@@ -1,5 +1,5 @@
 <x-layout title="create">
-    <form method="POST" action="/players" class="max-w-md mx-auto pt-2">
+    <form method="POST" action="{{route('players.index')}}" class="max-w-md mx-auto pt-2">
         @csrf
         <div class="grid md:grid-cols-2 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
@@ -12,13 +12,13 @@
             </div>
         </div>
         <div class="pt-2 pb-3">
-        <label for="positions" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select the players position</label>
-        <select id="positions" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <label for="position_id"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select the players position</label>
+        <select id="position_id" name="position_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 
-            <option>Keeper</option>
-            <option>Defender</option>
-            <option>Midfielder</option>
-            <option>Attacker</option>
+            <option value="1">Keeper</option>
+            <option value="2">Defender</option>
+            <option value="3">Midfielder</option>
+            <option value="4">Attacker</option>
         </select>
         </div>
 

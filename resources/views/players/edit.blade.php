@@ -1,10 +1,8 @@
 <x-layout title="Create">
     <div class="max-w-md mx-auto mt-6">
-        <!-- Title centered above the form -->
-        <h1 class="text-3xl font-bold text-gray-800 text-center">Create a new player</h1>
-        <p class="text-sm text-gray-500 text-center mb-6">Fill out the form below to add a new player to the team.</p>
+        <h1 class="text-3xl font-bold text-gray-800 text-center">Edit player: {{$player->firstname}} {{$player->lastname}}</h1>
+        <p class="text-sm text-gray-500 text-center mb-6">Fill out the form below to change information about the player.</p>
 
-        <!-- Form with thin outline and no dark background -->
         <form method="POST" action="{{ route('players.index') }}"
               class="p-6 border border-gray-300 rounded-lg bg-white shadow-sm">
             @csrf

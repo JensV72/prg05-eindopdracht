@@ -55,7 +55,7 @@ class PlayerController extends Controller
             'goals' => request('goals'),
             'assist' => request('assist'),
         ]);
-        return redirect()->route('players.index');
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -72,7 +72,7 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
-        //
+        return view('players.edit',['player'=>$player]);
     }
 
     /**

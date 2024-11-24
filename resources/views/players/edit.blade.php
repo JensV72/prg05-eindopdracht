@@ -10,7 +10,9 @@
                 <div class="relative z-0 w-full mb-5 group">
                     <input type="text" name="firstname" id="firstname"
                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                           placeholder=" " required />
+                           placeholder=" "
+                           value="{{$player->firstname}}"
+                           required/>
                     <label for="firstname"
                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                         First name
@@ -19,7 +21,9 @@
                 <div class="relative z-0 w-full mb-5 group">
                     <input type="text" name="lastname" id="lastname"
                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                           placeholder=" " required />
+                           placeholder=" "
+                           value="{{$player->lastname}}"
+                           required />
                     <label for="lastname"
                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                         Last name
@@ -33,6 +37,7 @@
                 </label>
                 <select id="position_id" name="position_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="{{$player->position_id}}">{{$player->position->name}}</option>
                     <option value="1">Keeper</option>
                     <option value="2">Defender</option>
                     <option value="3">Midfielder</option>
@@ -43,7 +48,9 @@
                 <div class="relative z-0 w-full mb-5 group">
                     <input type="number" name="goals" id="floating_goals"
                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                           placeholder=" " required />
+                           placeholder=" "
+                           value="{{$player->goals}}"
+                           required />
                     <label for="goals"
                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                         Goals
@@ -52,17 +59,25 @@
                 <div class="relative z-0 w-full mb-5 group">
                     <input type="number" name="assist" id="assist"
                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                           placeholder=" " required />
+                           placeholder=" "
+                           value="{{$player->assist}}"
+                           required />
                     <label for="assist"
                            class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                         Assists
                     </label>
                 </div>
             </div>
-            <button type="submit"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
-                Submit
-            </button>
+            <div class="flex justify-between mt-6">
+                <a href="{{route('dashboard')}}"
+                        class="text-gray-700 border border-gray-300 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                    Cancel
+                </a>
+                <button type="submit"
+                        class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                    Update
+                </button>
+            </div>
         </form>
     </div>
 </x-layout>

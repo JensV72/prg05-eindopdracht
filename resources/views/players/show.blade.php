@@ -38,7 +38,6 @@
                     <!-- Optional Action Buttons -->
                     <div class="mt-6 flex justify-between">
                         <a href="{{ route('players.index') }}" class="text-indigo-500 hover:text-indigo-700 font-semibold">Back to Players</a>
-{{--                        <a href="{{ route('players.edit', $player->slug) }}" class="text-blue-500 hover:text-blue-700 font-semibold">Edit Player</a>--}}
                     </div>
                 </div>
             </div>

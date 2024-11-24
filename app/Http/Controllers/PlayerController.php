@@ -45,8 +45,15 @@ class PlayerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store()
     {
+        request()->validate([
+        'firstname'=>['required'],
+            'lastname'=>['required'],
+            'position_id'=>['required'],
+            'goals'=>['required','min:1'],
+            'assist'=>['required','min:1'],
+        ]);
         Player::create([
             'firstname' => request('firstname'),
             'lastname' => request('lastname'),
@@ -78,9 +85,25 @@ class PlayerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Player $player)
+    public function update(Player $player)
     {
-        //
+        request()->validate([
+            'firstname'=>['required'],
+            'lastname'=>['required'],
+            'position_id'=>['required'],
+            'goals'=>['required','min:1'],
+            'assist'=>['required','min:1'],
+        ]);
+
+        $player->update([
+            'firstname' => request('firstname'),
+            'lastname' => request('lastname'),
+            'user_id' => 1,
+            'position_id' => request('position_id'),
+            'goals' => request('goals'),
+            'assist' => request('assist'),
+        ]);
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -88,6 +111,7 @@ class PlayerController extends Controller
      */
     public function destroy(Player $player)
     {
-        //
+        $player->delete();
+        return redirect()->route('dashboard');
     }
 }

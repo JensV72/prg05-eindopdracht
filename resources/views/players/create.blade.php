@@ -33,8 +33,9 @@
                        class="block mb-2 text-sm font-medium text-gray-900">
                     Select the player's position
                 </label>
-                <select id="position_id" name="position_id"
+                <select id="position_id" name="position_id" value="2"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="" selected disabled hidden>Choose position</option>
                     <option value="1">Keeper</option>
                     <option value="2">Defender</option>
                     <option value="3">Midfielder</option>

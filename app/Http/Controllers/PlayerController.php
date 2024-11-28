@@ -39,7 +39,10 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        return view('players.create');
+        $positions= Position::all();
+        return view('players.create',[
+            'positions'=>$positions
+        ]);
     }
 
     /**
@@ -79,7 +82,11 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
-        return view('players.edit',['player'=>$player]);
+        $positions = Position::all();
+        return view('players.edit', [
+            'player'=>$player,
+            'positions'=>$positions
+        ]);
     }
 
     /**

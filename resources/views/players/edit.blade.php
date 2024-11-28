@@ -3,9 +3,10 @@
         <h1 class="text-3xl font-bold text-gray-800 text-center">Edit player: {{$player->firstname}} {{$player->lastname}}</h1>
         <p class="text-sm text-gray-500 text-center mb-6">Fill out the form below to change information about the player.</p>
 
-        <form method="POST" action="{{ route('players.index') }}"
+        <form method="POST" action="/players/{{$player->id}}"
               class="p-6 border border-gray-300 rounded-lg bg-white shadow-sm">
             @csrf
+            @method('PATCH')
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="relative z-0 w-full mb-5 group">
                     <input type="text" name="firstname" id="firstname"
@@ -37,11 +38,12 @@
                 </label>
                 <select id="position_id" name="position_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <option value="{{$player->position_id}}">{{$player->position->name}}</option>
-                    <option value="1">Keeper</option>
-                    <option value="2">Defender</option>
-                    <option value="3">Midfielder</option>
-                    <option value="4">Attacker</option>
+                    @foreach($positions as $position)
+                    <option value="{{$position->id}}"@if($position->id === $player->position_id)selected @endif>
+                        {{$position->name}}
+                    </option>
+
+                    @endforeach
                 </select>
             </div>
             <div class="grid md:grid-cols-2 md:gap-6">

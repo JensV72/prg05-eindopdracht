@@ -36,10 +36,9 @@
                 <select id="position_id" name="position_id" value="2"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                     <option value="" selected disabled hidden>Choose position</option>
-                    <option value="1">Keeper</option>
-                    <option value="2">Defender</option>
-                    <option value="3">Midfielder</option>
-                    <option value="4">Attacker</option>
+                    @foreach($positions as $position)
+                    <option value="{{$position->id}}">{{$position->name}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="grid md:grid-cols-2 md:gap-6">

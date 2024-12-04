@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,4 +58,24 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+        public function updateAdmin(Request $request, $id): RedirectResponse
+    {
+        $request->validate([
+            'admin' => 'required|boolean',
+        ]);
+
+        $user = \App\Models\User::findOrFail($id); // Ensure you import the User model
+        $user->admin = $request->input('admin');
+        $user->save();
+
+        return Redirect::back()->with('status', 'Admin status successfully updated.');
+    }
+//    public function deleteAsAdmin(Request $request): RedirectResponse
+//    {
+////        ($user->admin= 1){
+////
+////        }
+//    }
+
 }

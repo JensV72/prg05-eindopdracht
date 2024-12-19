@@ -1,5 +1,4 @@
 <div class="mt-6">
-    <h2 class="text-2xl font-bold text-gray-900">User Overview</h2>
     <p class="text-gray-400 text-sm mt-1">A comprehensive list of all players, their stats, and positions.</p>
 
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
@@ -30,7 +29,7 @@
                         </form>
                     </td>
                     <td class="px-6 py-4">
-                        <form method="POST" action="{{ route('profile.destroy', $user) }}" class="inline-block">
+                        <form method="POST" action="{{ route('profile.destroy', $user->id) }}" class="inline-block">
                             @csrf
                             @method('DELETE')
                             <button type="submit"

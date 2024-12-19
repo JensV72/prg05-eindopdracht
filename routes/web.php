@@ -14,6 +14,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('players', PlayerController::class);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard/overview', [DashboardController::class, 'overview'])->middleware(['auth', 'verified'])->name('dashboard.overview');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

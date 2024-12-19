@@ -61,10 +61,16 @@
                     </label>
                 </div>
             </div>
-            <button type="submit"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
-                Submit
-            </button>
+            <div class="flex justify-between mt-6">
+                <a href="{{route('dashboard')}}"
+                   class="text-gray-700 border border-gray-300 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                    Cancel
+                </a>
+                <button type="submit"
+                        class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                    Submit
+                </button>
+            </div>
         </form>
     </div>
 </x-layout>

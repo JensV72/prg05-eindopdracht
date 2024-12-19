@@ -71,11 +71,4 @@ class ProfileController extends Controller
 
         return Redirect::back()->with('status', 'Admin status successfully updated.');
     }
-//    public function deleteAsAdmin(Request $request): RedirectResponse
-//    {
-////        ($user->admin= 1){
-////
-////        }
-//    }
-
 }

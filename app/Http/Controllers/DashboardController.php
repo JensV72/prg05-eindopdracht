@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use App\Models\Standing;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,25 @@ class DashboardController extends Controller
     {
         $players = Player::all();
         $users = User::all();
-        return view('dashboard',[
+        $teams = Standing::all();
+        return view('dashboard.dashboard',[
         'players' => $players,
-            'users' => $users
-            ]);
+            'users' => $users,
+            'teams' => $teams,
+        ]);
+    }
+
+    public function overview(Request $request)
+    {
+        $players = Player::all();
+        $users = User::all();
+        $title = $request->get('title');
+        $name = $request->get('name');
+        return view('dashboard.overview', [
+            'title' => $title,
+            'name'=> $name,
+            'players' => $players,
+            'users' => $users,
+        ]);
     }
 }

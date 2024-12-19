@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="flex justify-between mt-6">
-                <a href="{{route('dashboard')}}"
+                <a href="{{ route('dashboard.overview', ['title' => 'Player Overview','name'=>'player']) }}"
                         class="text-gray-700 border border-gray-300 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
                     Cancel
                 </a>

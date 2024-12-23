@@ -14,7 +14,16 @@ class DashboardController extends Controller
         $players = Player::all();
         $users = User::all();
         $teams = Standing::all();
+        $sorted = $teams->sortByDesc(function ($team) {
+            return [
+                $team->points,
+                $team->goal_difference,
+                $team->goals_scored
+            ];
+        });
+        $sorted->values()->all();
         return view('dashboard.dashboard',[
+            'sorted'=> $sorted,
         'players' => $players,
             'users' => $users,
             'teams' => $teams,
@@ -25,11 +34,21 @@ class DashboardController extends Controller
     {
         $players = Player::all();
         $users = User::all();
+        $teams = Standing::all();
         $title = $request->get('title');
         $name = $request->get('name');
+        $sorted = $teams->sortByDesc(function ($team) {
+            return [
+                $team->points,
+                $team->goal_difference,
+                $team->goals_scored
+            ];
+        });
+        $sorted->values()->all();
         return view('dashboard.overview', [
             'title' => $title,
             'name'=> $name,
+            'sorted'=>$sorted,
             'players' => $players,
             'users' => $users,
         ]);

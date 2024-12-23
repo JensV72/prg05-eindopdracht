@@ -65,7 +65,7 @@ class PlayerController extends Controller
             'goals' => request('goals'),
             'assist' => request('assist'),
         ]);
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard.overview', ['title' => 'Player Overview', 'name' => 'player']);
     }
 
     /**
@@ -110,7 +110,7 @@ class PlayerController extends Controller
             'goals' => request('goals'),
             'assist' => request('assist'),
         ]);
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard.overview', ['title' => 'Player Overview', 'name' => 'player']);
     }
 
     /**

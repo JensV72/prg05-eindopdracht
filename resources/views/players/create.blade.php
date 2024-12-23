@@ -5,7 +5,7 @@
         <p class="text-sm text-gray-500 text-center mb-6">Fill out the form below to add a new player to the team.</p>
 
         <!-- Form with thin outline and no dark background -->
-        <form method="POST" action="{{ route('players.index') }}"
+        <form method="POST" action="{{ route('players.store') }}"
               class="p-6 border border-gray-300 rounded-lg bg-white shadow-sm">
             @csrf
             <div class="grid md:grid-cols-2 md:gap-6">

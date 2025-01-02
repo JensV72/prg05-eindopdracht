@@ -1,5 +1,5 @@
 <div class="mt-6">
-    <p class="text-gray-400 text-sm mt-1">A comprehensive list of all teams, their stats, and positions.</p>
+    <p class="text-gray-400 text-sm mt-1">A comprehensive list of all teams, their stats, and position.</p>
 
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
         <table class="w-full text-sm text-left text-gray-300 dark:text-gray-100 bg-gray-800">
@@ -13,7 +13,8 @@
                 <th scope="col" class="px-6 py-3">Losses</th>
                 <th scope="col" class="px-6 py-3">Goals Scored</th>
                 <th scope="col" class="px-6 py-3">Goal difference</th>
-                <th scope="col" class="px-6 py-3">points</th>
+                <th scope="col" class="px-6 py-3">Points</th>
+                <th scope="col" class="px-6 py-3">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -29,17 +30,17 @@
                     <td class="px-6 py-4">{{ $team->goal_difference }}</td>
                     <td class="px-6 py-4">{{ $team->points }}</td>
                     <td class="px-6 py-4">
-{{--                        <a href="{{ route('players.edit', $player) }}"--}}
-{{--                           class="text-blue-400 hover:underline">Edit</a> |--}}
-{{--                        <form method="POST" action="{{ route('players.destroy', $player) }}" class="inline-block">--}}
-{{--                            @csrf--}}
-{{--                            @method('DELETE')--}}
-{{--                            <button type="submit"--}}
-{{--                                    class="text-red-400 hover:underline"--}}
-{{--                                    onclick="return confirm('Are you sure you want to delete this player?');">--}}
-{{--                                Delete--}}
-{{--                            </button>--}}
-{{--                        </form>--}}
+                        <a href="{{ route('teams.edit', $team) }}"
+                           class="text-blue-400 hover:underline">Edit</a> |
+                        <form method="POST" action="{{ route('teams.destroy', $team) }}" class="inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                    class="text-red-400 hover:underline"
+                                    onclick="return confirm('Are you sure you want to delete this team?');">
+                                Delete
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

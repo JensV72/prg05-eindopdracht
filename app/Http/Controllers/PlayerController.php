@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Player;
 use App\Models\Position;
 use App\Models\Postion;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PlayerController extends Controller
@@ -48,8 +49,10 @@ class PlayerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store()
+    public function store(Request $request)
     {
+        $userID = auth()->id();
+
         request()->validate([
         'firstname'=>['required'],
             'lastname'=>['required'],
@@ -60,7 +63,7 @@ class PlayerController extends Controller
         Player::create([
             'firstname' => request('firstname'),
             'lastname' => request('lastname'),
-            'user_id' => 1,
+            'user_id' => $userID,
             'position_id' => request('position_id'),
             'goals' => request('goals'),
             'assist' => request('assist'),
@@ -87,6 +90,7 @@ class PlayerController extends Controller
             'player'=>$player,
             'positions'=>$positions
         ]);
+
     }
 
     /**
@@ -119,6 +123,6 @@ class PlayerController extends Controller
     public function destroy(Player $player)
     {
         $player->delete();
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard.overview', ['title' => 'Player Overview', 'name' => 'player']);
     }
 }

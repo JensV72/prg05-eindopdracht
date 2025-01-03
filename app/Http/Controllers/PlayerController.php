@@ -49,7 +49,7 @@ class PlayerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store()
     {
         $userID = auth()->id();
 
@@ -68,7 +68,7 @@ class PlayerController extends Controller
             'goals' => request('goals'),
             'assist' => request('assist'),
         ]);
-        return redirect()->route('dashboard.overview', ['title' => 'Player Overview', 'name' => 'player']);
+        return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
     }
 
     /**
@@ -114,7 +114,7 @@ class PlayerController extends Controller
             'goals' => request('goals'),
             'assist' => request('assist'),
         ]);
-        return redirect()->route('dashboard.overview', ['title' => 'Player Overview', 'name' => 'player']);
+        return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
     }
 
     /**
@@ -123,6 +123,6 @@ class PlayerController extends Controller
     public function destroy(Player $player)
     {
         $player->delete();
-        return redirect()->route('dashboard.overview', ['title' => 'Player Overview', 'name' => 'player']);
+        return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
     }
 }

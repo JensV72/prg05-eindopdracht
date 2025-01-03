@@ -1,5 +1,5 @@
 <div class="mt-6">
-    <p class="text-gray-400 text-sm mt-1">A comprehensive list of all games, their stats, and position.</p>
+    <p class="text-gray-400 text-sm mt-1">A comprehensive list of all games and their stats.</p>
 
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
         <table class="w-full text-sm text-left text-gray-300 dark:text-gray-100 bg-gray-800">
@@ -11,6 +11,7 @@
                 <th scope="col" class="px-6 py-3">Opponents</th>
                 <th scope="col" class="px-6 py-3">Opponents Results</th>
                 <th scope="col" class="px-6 py-3">Game Dates</th>
+                <th scope="col" class="px-6 py-3">Pitch</th>
                 <th scope="col" class="px-6 py-3">Actions</th>
             </tr>
             </thead>
@@ -22,11 +23,12 @@
                     <td class="px-6 py-4">{{ $game->result_team }}</td>
                     <td class="px-6 py-4">{{ $game->opponent }}</td>
                     <td class="px-6 py-4">{{ $game->result_opponent }}</td>
-                    <td class="px-6 py-4">{{ $game->game_date}}</td>
+                    <td class="px-6 py-4">{{ Carbon\Carbon::createFromTimestampMs($game->game_date)->format('F j, Y g:i A')}}</td>
+                    <td class="px-6 py-4">{{ $game->pitch }}</td>
                     <td class="px-6 py-4">
-                        <a href="{{ route('teams.edit', $game) }}"
+                        <a href="{{ route('games.edit', $game) }}"
                            class="text-blue-400 hover:underline">Edit</a> |
-                        <form method="POST" action="{{ route('teams.destroy', $game) }}" class="inline-block">
+                        <form method="POST" action="{{ route('games.destroy', $game) }}" class="inline-block">
                             @csrf
                             @method('DELETE')
                             <button type="submit"

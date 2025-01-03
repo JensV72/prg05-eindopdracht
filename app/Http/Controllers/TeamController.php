@@ -40,7 +40,7 @@ class TeamController extends Controller
             'goal_difference' => request('goal_difference'),
             'points' => request('points')
         ]);
-        return redirect()->route('dashboard.overview', ['title' => 'Team Overview', 'name' => 'team']);
+        return redirect()->route('dashboard.overview', ['title' => 'Teams Overview', 'name' => 'team']);
     }
 
 
@@ -74,12 +74,12 @@ class TeamController extends Controller
             'goal_difference' => request('goal_difference'),
             'points' => request('points')
         ]);
-        return redirect()->route('dashboard.overview', ['title' => 'Team Overview', 'name' => 'team']);
+        return redirect()->route('dashboard.overview', ['title' => 'Teams Overview', 'name' => 'team']);
     }
 
     public function destroy(Team $team)
     {
         $team->delete();
-        return redirect()->route('dashboard.overview', ['title' => 'Team Overview', 'name' => 'team']);
+        return redirect()->route('dashboard.overview', ['title' => 'Teams Overview', 'name' => 'team']);
     }
 }

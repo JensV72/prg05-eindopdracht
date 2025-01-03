@@ -3,7 +3,7 @@
 <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
-            <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+            <a href="{{route('home')}}" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                 <img src="{{Vite::asset("resources/images/Team_fainort_logo.png")}}" class="h-16 max-h-16 " alt="logo team fainort" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Fainort</span>
             </a>

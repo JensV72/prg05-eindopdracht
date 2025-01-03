@@ -16,18 +16,16 @@ class DashboardController extends Controller
         $players = Player::all();
         $users = User::all();
         $teams = Team::all();
+        $games = Game::all();
         $nextGame = Game::where('game_date', '>=', now()->timestamp * 1000)
         ->orderBy('game_date', 'asc')
             ->first();
 
-        if ($nextGame) {
-            $gameDate = Carbon::createFromTimestampMs($nextGame->game_date)->format('F j');
-        } else {
-            $gameDate = 'No upcoming games';
-        }
-//        $lastGame = Game::where('game_date', '=<', now()->timestamp * 1000)
-//            ->orderBy('game_date', 'asc')
-//            ->first();
+
+        $lastGame = Game::where('game_date', '<=', now()->timestamp * 1000)
+            ->orderBy('game_date', 'desc')
+            ->first();
+
 
         $sorted = $teams->sortByDesc(function ($team) {
             return [
@@ -41,8 +39,8 @@ class DashboardController extends Controller
             'sorted'=> $sorted,
             'players' => $players,
             'next_game' => $nextGame,
-            'game_date' => $gameDate,
-//            'last_game' => $lastGame,
+            'games' => $games,
+            'last_game' => $lastGame,
             'users' => $users,
             'teams' => $teams,
         ]);
@@ -54,6 +52,12 @@ class DashboardController extends Controller
         $users = User::all();
         $teams = Team::all();
         $games = Game::all();
+        $results = Game::where('game_date', '<=', now()->timestamp * 1000)
+            ->orderBy('game_date', 'asc')
+            ->get();
+        $fixtures = Game::where('game_date', '>=', now()->timestamp * 1000)
+            ->orderBy('game_date', 'asc')
+            ->get();
         $title = $request->get('title');
         $name = $request->get('name');
         $sorted = $teams->sortByDesc(function ($team) {
@@ -67,6 +71,8 @@ class DashboardController extends Controller
         return view('dashboard.overview', [
             'title' => $title,
             'name'=> $name,
+            'fixtures' => $fixtures,
+            'results' => $results,
             'sorted'=>$sorted,
             'players' => $players,
             'users' => $users,

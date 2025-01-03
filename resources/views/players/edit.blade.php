@@ -1,4 +1,4 @@
-<x-layout title="Create">
+<x-layout title="Edit">
     <div class="max-w-md mx-auto mt-6">
         <h1 class="text-3xl font-bold text-gray-800 text-center">Edit player: {{$player->firstname}} {{$player->lastname}}</h1>
         <p class="text-sm text-gray-500 text-center mb-6">Fill out the form below to change information about the player.</p>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="flex justify-between mt-6">
-                <a href="{{ route('dashboard.overview', ['title' => 'Player Overview','name'=>'player']) }}"
+                <a href="{{ route('dashboard.overview', ['title' => 'Players Overview','name'=>'player']) }}"
                         class="text-gray-700 border border-gray-300 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5">
                     Cancel
                 </a>

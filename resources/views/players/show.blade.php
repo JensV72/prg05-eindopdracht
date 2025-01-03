@@ -1,4 +1,4 @@
-<x-layout title="playerdetails">
+<x-layout title="Playerdetails">
     <div class="container mx-auto py-8">
         <div class="max-w-2xl mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
             <!-- Player Section: Image on the Left, Details on the Right -->

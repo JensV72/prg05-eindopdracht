@@ -4,10 +4,11 @@
             <!-- Introductietekst -->
             <h1 class="text-4xl font-bold mb-4">FAINORT</h1>
             <p class="text-lg mb-6">
-                Ey jij daar, waarschijnlijk ben je hier geland omdat je straalbezopen tickets wilde kopen
-                voor de mooiste club ter wereld: Feyenoord. Dat je woordenschat nu niet zo best is, kunnen we je vergeven.
-                Wat we je niet kunnen vergeven is om nu dit tabblad te sluiten en online kennis te maken met het meest
-                extravagante 7-tegen-7 voetbalteam die het universum rijk is: <strong>FAINORT!</strong>
+                Hey you there! You’ve probably stumbled in here while completely hammered,
+                trying to score tickets for the greatest club in the world: Feyenoord.
+                We can forgive you if your vocabulary isn't exactly top-notch right now.
+                What we can’t forgive is you closing this tab without getting to know the most extravagant
+                7-a-side football team the universe has ever seen: <strong>FAINORT!</strong>
             </p>
         </section>
 
@@ -21,62 +22,70 @@
         </section>
 
         <section class="text-left">
-            <h2 class="text-2xl font-semibold mb-4">Over ons</h2>
+            <h2 class="text-2xl font-semibold mb-4">About Us</h2>
             <p class="mb-4">
-                2023 was natuurlijk het jaar dat Manchester City de treble won, een 0-4 overwinning van onze grote broer in de Arena
-                en natuurlijk de oprichting van ons extravagante 7-tegen-7 voetbalcluppie: <strong>FAINORT</strong>.
-                Om de oprichting van onze topclub te vieren besloten we een flink portie bitterballen te bestellen
-                en deze af te blussen met bier en baco. Naast dat je nu achter ons geheime krachtvoer bent gekomen,
-                stellen we ons graag nog effe verder voor.
+                2023 was the year Manchester City won the treble,
+                our big brother claimed a glorious 0-4 victory in the Arena,
+                and most importantly the birth of our extravagant 7-a-side football club: <strong>FAINORT</strong>.
+                To celebrate the founding of our top-tier team,
+                we ordered a hearty portion of bitterballen and washed it down with beer and baco.
+                Now that you know our secret fuel,
+                let us introduce ourselves a bit more.
             </p>
             <p class="mb-4">
-                Wij zijn dus <strong>FAINORT</strong>, niet in het rood-wit, maar blauw-wit. Heeft helemaal niets te maken met de Maas of Rotte,
-                maar gewoon omdat we een paar mooie tenuetjes op de kop wisten te tikken. Hèhè. Elke donderdagavond is het zover;
-                <strong>matchday</strong>. Na de inhoud van onze sporttas ongewassen weer aangetrokken te hebben en een warming-up
-                à la Michiel Kramer te hebben gedaan, gaan we er weer voor.
+                We are <strong>FAINORT</strong>, not in red and white, but blue and white.
+                Not because of the Maas or the Rotte,
+                but simply because we scored some nice kits on sale. Classic.
+                Thursday night is the big moment: <strong>matchday</strong>.
+                After throwing on the unwashed contents of our sports bags
+                and warming up with all the finesse of Michiel Kramer,
+                we're ready to hit the field.
             </p>
             <p class="mb-6">
-                “Kein geloel, fussbal spielen”, is het mojo van onze club en wie we ook treffen - wij zijn niet bang. Met een selectie
-                van vijftien sterspelers is dat natuurlijk ook niet nodig. Elke wedstrijd is dan ook weer alsof je naar
-                Real Madrid tegen Barcelona aan het kijken bent. We houden het tempo natuurlijk wel ietsje lager, om de tegenstanders
-                ook een leuke dag op het werk te geven de volgende dag.
+                "Kein geloel, fussbal spielen"
+                is the mantra of our club. Whoever we face,
+                we fear no one. With a squad of fifteen star players,
+                there's no need to.
+                Every match feels like Real Madrid versus Barcelona
+                —though we dial the pace down just a notch so our
+                opponents can still have a good day at work the next morning.
             </p>
         </section>
 
         <section>
-            <h3 class="text-xl font-semibold mb-4">De Selectie</h3>
+            <h3 class="text-xl font-semibold mb-4">The Squad</h3>
             <ul class="list-disc ml-6 space-y-4">
                 <li>
-                    <strong>Commercieel directeur en mannelijke Jade Anna:</strong> Dion Roessen
-                    <p>Altijd bezig met deals sluiten, houdt de sponsors tevreden en zorgt voor een onvergetelijke derde helft.</p>
+                    <strong>Commercial Director and the male Jade Anna:</strong> Dion Roessen
+                    <p>Always striking deals, keeping the sponsors happy, and making the third half unforgettable.</p>
                 </li>
                 <li>
-                    <strong>Technisch directeur en toekomstig jachtbezitter:</strong> Dennis Snoeck
-                    <p>Weet alles van tactiek en nog meer van luxe, droomt al van zijn volgende vakantie op zee.</p>
+                    <strong>Technical Director and future yacht owner:</strong> Dennis Snoeck
+                    <p>.Knows tactics like the back of his hand and luxury even better, dreaming of his next seaside vacation.</p>
                 </li>
                 <li>
-                    <strong>Directeur voetbalontwikkeling en catering-tycoon:</strong> Tom Hamerlinck
-                    <p>Combineert skills op het veld met het beste bitterballen-menu van Nederland.</p>
+                    <strong>Director of Football Development and catering tycoon:</strong> Tom Hamerlinck
+                    <p>Combines on-field skills with crafting the best bitterballen menu in the Netherlands.</p>
                 </li>
                 <li>
-                    <strong>Krachtcoach en meesterbarbier:</strong> Quino Arnolds
-                    <p>Houdt de mannen fit én strak in model, van spieren tot kapsels.</p>
+                    <strong>Strength Coach and Master Barber</strong> Quino Arnolds
+                    <p>Keeps the lads fit and looking sharp, from biceps to buzz cuts.</p>
                 </li>
                 <li>
-                    <strong>Spitsentrainer en toekomstig horecamagnaat:</strong> Luca Billic
-                    <p>Ontwikkelt dodelijke spitsen terwijl hij zijn horecadroom werkelijkheid maakt.</p>
+                    <strong>Striker Coach and aspiring hospitality mogul:</strong> Luca Billic
+                    <p>Breeds deadly strikers while building his hospitality empire.</p>
                 </li>
                 <li>
-                    <strong>Meestertacticus en tevens goed met planten en water:</strong> Remco Peters
-                    <p>Zorgt voor briljante opstellingen en een gezonde selectie, letterlijk en figuurlijk.</p>
+                    <strong>Master Tactician and plant-and-water guru: </strong> Remco Peters
+                    <p>Draws up brilliant game plans and keeps the field green.</p>
                 </li>
                 <li>
-                    <strong>Waterjongen en plaatsvervanger Willem-Alexander:</strong> Christian Schotman
-                    <p>Altijd paraat met hydratatie én koninklijke charme.</p>
+                    <strong>Water Boy and Willem-Alexander stand-in:</strong> Christian Schotman
+                    <p>Always ready with hydration and royal-level charm.</p>
                 </li>
                 <li>
-                    <strong>Hoofd medische staff en supervisor onderwijs:</strong> Maurus van Eijk
-                    <p>Houdt het team blessurevrij en deelt wijze lessen óp en naast het veld.</p>
+                    <strong>Head of Medical Staff and education supervisor:</strong> Maurus van Eijk
+                    <p>Keeps the team injury-free while dishing out life lessons on and off the pitch.</p>
                 </li>
             </ul>
         </section>

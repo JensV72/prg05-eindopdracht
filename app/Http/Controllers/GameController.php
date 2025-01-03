@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class GameController extends Controller
 {
@@ -21,65 +23,56 @@ class GameController extends Controller
     public function store()
     {
         request()->validate([
-            'team' => ['required'],
-            'played' => ['required', 'min:1'],
-            'wins' => ['required', 'min:1'],
-            'draws' => ['required', 'min:1'],
-            'losses' => ['required', 'min:1'],
-            'goals_scored' => ['required', 'min:1'],
-            'goal_difference' => ['required', 'min:1'],
-            'points' => ['required', 'min:1']
+            'team' => 'Fainort',
+            'pitch' => ['required','min:1'],
+            'opponent' => ['required'],
+            'game_date' => ['required', 'date']
         ]);
-        Team::create([
-            'team' => request('team'),
-            'played' => request('played'),
-            'wins' => request('wins'),
-            'draws' => request('draws'),
-            'losses' => request('losses'),
-            'goals_scored' => request('goals_scored'),
-            'goal_difference' => request('goal_difference'),
-            'points' => request('points')
+
+        $gameDateInMs = Carbon::createFromFormat('Y-m-d\TH:i', request('game_date'))->timestamp * 1000;
+
+        Game::create([
+            'team' => 'Fainort',
+            'pitch' => request('pitch'),
+            'opponent' => request('opponent'),
+            'result_team' => request('result_team'),
+            'result_opponent' => request('result_opponent'),
+            'game_date' => $gameDateInMs,
         ]);
-        return redirect()->route('dashboard.overview', ['title' => 'Team Overview', 'name' => 'team']);
+        return redirect()->route('dashboard.overview', ['title' => 'games Overview', 'name' => 'game']);
     }
 
 
-    public function edit(Team $team)
+    public function edit(Game $game)
     {
-        return view('teams.edit', [
-            'team' => $team,
+        return view('games.edit', [
+            'game' => $game,
         ]);
 
     }
 
-    public function update(Team $team)
+    public function update(Game $game)
     {
         request()->validate([
-            'team' => ['required'],
-            'played' => ['required', 'min:1'],
-            'wins' => ['required', 'min:1'],
-            'draws' => ['required', 'min:1'],
-            'losses' => ['required', 'min:1'],
-            'goals_scored' => ['required', 'min:1'],
-            'goal_difference' => ['required', 'min:1'],
-            'points' => ['required', 'min:1']
+            'opponent' => ['required'],
+            'pitch' => ['required','min:1'],
+            'game_date' => ['required', 'date'],
         ]);
-        $team->update([
-            'team' => request('team'),
-            'played' => request('played'),
-            'wins' => request('wins'),
-            'draws' => request('draws'),
-            'losses' => request('losses'),
-            'goals_scored' => request('goals_scored'),
-            'goal_difference' => request('goal_difference'),
-            'points' => request('points')
+        $gameDateInMs = Carbon::createFromFormat('Y-m-d\TH:i', request('game_date'))->timestamp * 1000;
+
+        $game->update([
+            'opponent' => request('opponent'),
+            'pitch' => request('pitch'),
+            'result_team' => request('result_team'),
+            'result_opponent' => request('result_opponent'),
+            'game_date' => $gameDateInMs,
         ]);
-        return redirect()->route('dashboard.overview', ['title' => 'Team Overview', 'name' => 'team']);
+        return redirect()->route('dashboard.overview', ['title' => 'Games Overview', 'name' => 'game']);
     }
 
-    public function destroy(Team $team)
+    public function destroy(Game $game)
     {
-        $team->delete();
-        return redirect()->route('dashboard.overview', ['title' => 'Team Overview', 'name' => 'team']);
+        $game->delete();
+        return redirect()->route('dashboard.overview', ['title' => 'Games Overview', 'name' => 'game']);
     }
 }

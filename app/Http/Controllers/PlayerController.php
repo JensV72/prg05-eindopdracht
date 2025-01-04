@@ -49,25 +49,40 @@ class PlayerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store()
+    public function store(Request $request)
     {
         $userID = auth()->id();
 
-        request()->validate([
-        'firstname'=>['required'],
-            'lastname'=>['required'],
-            'position_id'=>['required'],
-            'goals'=>['required','min:1'],
-            'assist'=>['required','min:1'],
+        $ola= 3;
+
+        // Validate the request inputs
+        $request->validate([
+            'firstname' => ['required'],
+            'lastname' => ['required'],
+            'position_id' => ['required'],
+            'goals' => ['required', 'min:1'],
+            'assist' => ['required', 'min:1'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ]);
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->storePublicly('players', 'public');
+        } else {
+            $imagePath = null;
+        }
+
+        // Create the player entry in the database
         Player::create([
-            'firstname' => request('firstname'),
-            'lastname' => request('lastname'),
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
             'user_id' => $userID,
-            'position_id' => request('position_id'),
-            'goals' => request('goals'),
-            'assist' => request('assist'),
+            'position_id' => $request->input('position_id'),
+            'goals' => $request->input('goals'),
+            'assist' => $request->input('assist'),
+            'image' => $imagePath,  // Store the relative image path in the database
         ]);
+
+        // Redirect to the player overview page
         return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
     }
 

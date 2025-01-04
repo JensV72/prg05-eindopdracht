@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Player extends Model
 {
 
-    protected $fillable = ['firstname','user_id','created_at','updated_at','position_id','lastname','goals','assist'];
+    protected $fillable = ['firstname','user_id','created_at','updated_at','position_id','lastname','goals','assist','image'];
     public function position()
     {
         return $this->belongsTo(Position::class);

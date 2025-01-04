@@ -29,7 +29,7 @@
                         </form>
                     </td>
                     <td class="px-6 py-4">
-                        <form method="POST" action="{{ route('profile.destroy', $user->id) }}" class="inline-block">
+                        <form method="POST" action="{{ route('profile.destroyUser',$user) }}" class="inline-block">
                             @csrf
                             @method('DELETE')
                             <button type="submit"

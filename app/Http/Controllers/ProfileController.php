@@ -65,10 +65,15 @@ class ProfileController extends Controller
             'admin' => 'required|boolean',
         ]);
 
-        $user = \App\Models\User::findOrFail($id); // Ensure you import the User model
+        $user = User::findOrFail($id); // Ensure you import the User model
         $user->admin = $request->input('admin');
         $user->save();
 
         return Redirect::back()->with('status', 'Admin status successfully updated.');
+    }
+
+    public function destroyUser(User $user){
+        $user->delete();
+        return redirect()->route('dashboard.overview', ['title' => 'Users    Overview', 'name' => 'user']);
     }
 }

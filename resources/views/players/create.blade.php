@@ -5,7 +5,7 @@
         <p class="text-sm text-gray-500 text-center mb-6">Fill out the form below to add a new player to the team.</p>
 
         <!-- Form with thin outline and no dark background -->
-        <form method="POST" action="{{ route('players.store') }}"
+        <form method="POST" action="{{ route('players.store') }}" enctype="multipart/form-data"
               class="p-6 border border-gray-300 rounded-lg bg-white shadow-sm">
             @csrf
             <div class="grid md:grid-cols-2 md:gap-6">
@@ -60,6 +60,12 @@
                         Assists
                     </label>
                 </div>
+            </div>
+            <div class="relative z-0 w-full mb-5 group">
+                <input type="file" name="image" id="image" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" />
+                <label for="image" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    Player Image
+                </label>
             </div>
             <div class="flex justify-between mt-6">
                 <a href="{{route('dashboard')}}"

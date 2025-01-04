@@ -18,7 +18,7 @@
                     <td class="px-6 py-4">{{ $fixture->team }}</td>
                     <td class="px-6 py-4">-</td>
                     <td class="px-6 py-4">{{ $fixture->opponent }}</td>
-                    <td class="px-6 py-4">{{ Carbon\Carbon::createFromTimestampMs($fixture->game_date)->format('F j, Y') }}</td>
+                    <td class="px-6 py-4">{{ Carbon\Carbon::createFromTimestampMs($fixture->game_date)->format('F j, Y g:i A') }}</td>
                     <td class="px-6 py-4">{{ $fixture->pitch }}</td>
                 </tr>
             @endforeach

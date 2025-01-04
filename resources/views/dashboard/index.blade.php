@@ -80,32 +80,19 @@
             </a>
 
             <!-- Admin Section -->
+            <!-- Players Section -->
             <div class="lg:grid lg:grid-cols-2 lg:gap-6">
+                <div class="text-lg font-bold text-gray-800 dark:text-gray-200">
+                    Player Controller
+                </div>
+                <div>
 
-                <!-- Users Overview Section -->
-                <a href="{{ route('dashboard.overview', ['title' => 'Users Overview','name'=>'user']) }}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
-                    <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Users Overview</h2>
-                    <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{$users->count()}}</p>
-                </a>
-
-                <!-- Games Overview Section -->
-                <a href="{{ route('dashboard.overview', ['title' => 'Games Overview','name'=>'game']) }}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
-                    <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Games Overview</h2>
-                    <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{$games->count()}}</p>
-                </a>
-
+                </div>
                 <!-- Players Overview Section -->
                 <a href="{{ route('dashboard.overview', ['title' => 'Players Overview','name'=>'player']) }}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
                     <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Players Overview</h2>
                     <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{$players->count()}}</p>
                 </a>
-
-                <!-- Teams Overview Section -->
-                <a href="{{ route('dashboard.overview', ['title' => 'Teams Overview','name'=>'team']) }}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
-                    <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Teams Overview</h2>
-                    <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{$teams->count()}}</p>
-                </a>
-
                 <!-- Create New Player -->
                 <a href="{{route('players.create')}}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
                     <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Create New Player</h2>
@@ -115,6 +102,21 @@
                         alt="Player Create Icon"
                     />
                 </a>
+            </div>
+
+            <!-- Teams Section -->
+            <div class="lg:grid lg:grid-cols-2 lg:gap-6">
+                <div class="text-lg font-bold text-gray-800 dark:text-gray-200">
+                    Team Controller
+                </div>
+                <div>
+                </div>
+                <!-- Teams Overview Section -->
+                <a href="{{ route('dashboard.overview', ['title' => 'Teams Overview','name'=>'team']) }}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
+                    <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Teams Overview</h2>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{$teams->count()}}</p>
+                </a>
+
 
                 <!-- Create New Team -->
                 <a href="{{route('teams.create')}}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
@@ -124,6 +126,20 @@
                         src="{{ Vite::asset('resources/images/plusIcon.png') }}"
                         alt="Team Create Icon"
                     />
+                </a>
+            </div>
+
+            <!-- Games Section -->
+                <div class="lg:grid lg:grid-cols-2 lg:gap-6">
+                    <div class="text-lg font-bold text-gray-800 dark:text-gray-200">
+                        Game Controller
+                    </div>
+                    <div>
+                    </div>
+                    <!-- Games Overview Section -->
+                <a href="{{ route('dashboard.overview', ['title' => 'Games Overview','name'=>'game']) }}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
+                    <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Games Overview</h2>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{$games->count()}}</p>
                 </a>
 
                 <!-- Create New Game -->
@@ -135,9 +151,20 @@
                         alt="Game Create Icon"
                     />
                 </a>
-
             </div>
-
+            <!-- Users Section -->
+            <div class="lg:grid lg:grid-cols-2 lg:gap-6">
+                <div class="text-lg font-bold text-gray-800 dark:text-gray-200">
+                    User Controller
+                </div>
+                <div>
+                </div>
+                <a href="{{ route('dashboard.overview', ['title' => 'Users Overview','name'=>'user']) }}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
+                    <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Users Overview</h2>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{$users->count()}}</p>
+                </a>
+            </div>
+            </div>
         </div>
     </div>
 </x-layout>

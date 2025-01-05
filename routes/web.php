@@ -17,9 +17,9 @@ Route::resource('players', PlayerController::class);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard/overview', [DashboardController::class, 'overview'])->middleware(['auth', 'verified'])->name('dashboard.overview');
 
-Route::resource('teams', TeamController::class);
+Route::resource('teams', TeamController::class)->middleware(['auth','admin','verified']);
 
-Route::resource('games', GameController::class);
+Route::resource('games', GameController::class)->middleware(['auth','admin','verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

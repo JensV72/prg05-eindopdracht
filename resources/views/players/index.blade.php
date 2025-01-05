@@ -31,7 +31,17 @@
                 </x-searchbar>
             </div>
         </section>
-        @if($selectedPosition)
+
+        @if($searched)
+            <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6 text-center">
+                {{ count($players) > 0 ? 'Search Results' : 'No results found' }}
+            </h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                @foreach ($players as $player)
+                    @include('components.player-card', ['player' => $player])
+                @endforeach
+            </div>
+        @elseif($selectedPosition)
             <section class="mb-12">
                 <h1 class="text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl dark:text-white mb-6 text-center">
                     {{ $positions->firstWhere('id', $selectedPosition)->name }}

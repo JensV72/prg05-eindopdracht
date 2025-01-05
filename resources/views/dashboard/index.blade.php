@@ -80,6 +80,7 @@
             </a>
 
             <!-- Admin Section -->
+            @if(Auth::user()->admin )
             <!-- Players Section -->
             <div class="lg:grid lg:grid-cols-2 lg:gap-6">
                 <div class="text-lg font-bold text-gray-800 dark:text-gray-200">
@@ -164,6 +165,48 @@
                     <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{$users->count()}}</p>
                 </a>
             </div>
+            @elseif($players->count() >= 3)
+                <div class="lg:grid lg:grid-cols-2 lg:gap-6">
+                    <div class="text-lg font-bold text-gray-800 dark:text-gray-200">
+                        Player controller
+                    </div>
+                    <div>
+
+                    </div>
+                    <!-- Players Overview Section -->
+                    <a href="{{ route('dashboard.overview', ['title' => 'Players Overview','name'=>'player']) }}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
+                        <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Your Added Players</h2>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{$players->count()}}</p>
+                    </a>
+                    <!-- Create New Player -->
+                    <a href="{{route('players.create')}}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
+                        <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Create New Player</h2>
+                        <img
+                            class="w-8 h-8 object-contain mt-3"
+                            src="{{ Vite::asset('resources/images/plusIcon.png') }}"
+                            alt="Player Create Icon"
+                        />
+                    </a>
+                </div>
+            @else
+                <div class="lg:grid lg:grid-cols-2 lg:gap-6">
+                    <div class="text-lg font-bold text-gray-800 dark:text-gray-200">
+                        Player controller
+                    </div>
+                    <div>
+
+                    </div>
+                    <!-- Create New Player -->
+                    <a href="{{route('players.create')}}" class="bg-white rounded-lg shadow p-4 dark:bg-gray-800 flex flex-col items-center justify-center">
+                        <h2 class="text-gray-600 dark:text-gray-300 text-sm font-semibold">Create New Player</h2>
+                        <img
+                            class="w-8 h-8 object-contain mt-3"
+                            src="{{ Vite::asset('resources/images/plusIcon.png') }}"
+                            alt="Player Create Icon"
+                        />
+                    </a>
+                </div>
+            @endif
             </div>
         </div>
     </div>

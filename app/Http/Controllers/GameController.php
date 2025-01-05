@@ -24,7 +24,7 @@ class GameController extends Controller
     {
         request()->validate([
             'team' => 'Fainort',
-            'pitch' => ['required','min:1'],
+            'pitch' => ['required'],
             'opponent' => ['required'],
             'game_date' => ['required', 'date']
         ]);

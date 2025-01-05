@@ -5,7 +5,7 @@
             <div class="flex flex-col sm:flex-row">
                 <!-- Player Image -->
                 <div class="sm:w-1/3 flex items-center justify-center p-4 bg-gray-100 dark:bg-gray-700">
-                    <img class="w-32 h-32 rounded-full object-cover" src="{{Vite::asset("resources/images/Cristiaan_ronaldo.png")}}" alt="{{ $player->firstname }}">
+                    <img class="w-32 h-32 rounded-full object-cover" src="{{ asset('storage/' . $player->image) }}" alt="{{ $player->firstname }} {{ $player->lastname }}">
                 </div>
 
                 <!-- Player Details -->

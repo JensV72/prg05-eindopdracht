@@ -7,6 +7,7 @@ use App\Models\Position;
 use App\Models\Postion;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlayerController extends Controller
 {
@@ -14,21 +15,31 @@ class PlayerController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
-        $positionId = $request->input('position_id');
+    {   $searched = false;
+
         $positions = Position::all();
 
-        $players = $positionId ? Player::where('position_id', $positionId) : Player::query();
+        $positionId = $request->input('position_id');
 
+        $playersQuery = Player::query();
 
-        if ($request->has('search')) {
-            $searchTerm = $request->input('search');
-            $players = $players->where('firstname', 'like', '%' . $searchTerm . '%')->orWhere('lastname', 'like', '%' . $searchTerm . '%');
+        if ($positionId) {
+            $playersQuery->where('position_id', $positionId);
         }
 
-        $players = $players->get();
+        if ($request->has('search') && $request->input('search') !== '') {
+            $searched = true;
+            $searchTerm = $request->input('search');
+            $playersQuery->where(function ($query) use ($searchTerm) {
+                $query->where('firstname', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('lastname', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
+        $players = $playersQuery->get();
 
         return view('players.index', [
+            'searched' => $searched,
             'players' => $players,
             'selectedPosition' => $positionId,
             'positions' => $positions,
@@ -53,25 +64,21 @@ class PlayerController extends Controller
     {
         $userID = auth()->id();
 
-        $ola= 3;
-
-        // Validate the request inputs
         $request->validate([
             'firstname' => ['required'],
             'lastname' => ['required'],
             'position_id' => ['required'],
-            'goals' => ['required', 'min:1'],
-            'assist' => ['required', 'min:1'],
-            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+            'goals' => ['required'],
+            'assist' => ['required'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ]);
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->storePublicly('players', 'public');
+            $image = $request->file('image')->storePublicly('players', 'public');
         } else {
-            $imagePath = null;
+            $image = null;
         }
 
-        // Create the player entry in the database
         Player::create([
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
@@ -79,11 +86,19 @@ class PlayerController extends Controller
             'position_id' => $request->input('position_id'),
             'goals' => $request->input('goals'),
             'assist' => $request->input('assist'),
-            'image' => $imagePath,  // Store the relative image path in the database
+            'image' => $image,
         ]);
 
-        // Redirect to the player overview page
-        return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
+        $deeperValidation = Player::where('user_id', Auth::user()->id)
+            ->count();
+
+        if (Auth::user()->admin) {
+            return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
+        } elseif ($deeperValidation <= 2) {
+            return redirect()->route('dashboard');
+        } else {
+            return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
+        }
     }
 
     /**
@@ -101,10 +116,14 @@ class PlayerController extends Controller
     public function edit(Player $player)
     {
         $positions = Position::all();
+        if ($player->user_id == Auth::id() || Auth::user()->admin){
         return view('players.edit', [
             'player'=>$player,
             'positions'=>$positions
         ]);
+        }
+        else {
+            abort(403, 'Unauthorized action.');}
 
     }
 
@@ -138,6 +157,18 @@ class PlayerController extends Controller
     public function destroy(Player $player)
     {
         $player->delete();
-        return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
+
+        $deeperValidation = Player::where('user_id', Auth::user()->id)
+            ->count();
+
+        if (Auth::user()->admin){
+            return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
+        }
+        elseif ($deeperValidation <= 2){
+            return redirect()->route('dashboard');
+        }
+        else {
+            return redirect()->route('dashboard.overview', ['title' => 'Players Overview', 'name' => 'player']);
+        }
     }
 }

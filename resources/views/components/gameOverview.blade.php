@@ -1,3 +1,4 @@
+@if(Auth::user()->admin)
 <div class="mt-6">
     <p class="text-gray-400 text-sm mt-1">A comprehensive list of all games and their stats.</p>
 
@@ -44,3 +45,7 @@
         </table>
     </div>
 </div>
+@else
+    <script>window.location = "{{ route('home') }}";</script>
+@endif
+

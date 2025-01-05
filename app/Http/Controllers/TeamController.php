@@ -22,13 +22,13 @@ class TeamController extends Controller
     {
         request()->validate([
             'team' => ['required'],
-            'played' => ['required', 'min:1'],
-            'wins' => ['required', 'min:1'],
-            'draws' => ['required', 'min:1'],
-            'losses' => ['required', 'min:1'],
-            'goals_scored' => ['required', 'min:1'],
-            'goal_difference' => ['required', 'min:1'],
-            'points' => ['required', 'min:1']
+            'played' => ['required'],
+            'wins' => ['required'],
+            'draws' => ['required'],
+            'losses' => ['required'],
+            'goals_scored' => ['required'],
+            'goal_difference' => ['required'],
+            'points' => ['required']
         ]);
         Team::create([
             'team' => request('team'),

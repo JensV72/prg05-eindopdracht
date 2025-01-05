@@ -1,4 +1,5 @@
-<div class="mt-6">
+@if(Auth::user()->admin)
+    <div class="mt-6">
     <p class="text-gray-400 text-sm mt-1">A comprehensive list of all teams, their stats, and position.</p>
 
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
@@ -48,3 +49,6 @@
         </table>
     </div>
 </div>
+@else
+    <script>window.location = "{{ route('home') }}";</script>
+@endif

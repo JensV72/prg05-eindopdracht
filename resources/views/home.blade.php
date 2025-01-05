@@ -53,7 +53,7 @@
         </section>
 
         <section>
-            <h3 class="text-xl font-semibold mb-4">The Squad</h3>
+            <h3 class="text-xl font-semibold mb-4">The staff</h3>
             <ul class="list-disc ml-6 space-y-4">
                 <li>
                     <strong>Commercial Director and the male Jade Anna:</strong> Dion Roessen
@@ -61,7 +61,7 @@
                 </li>
                 <li>
                     <strong>Technical Director and future yacht owner:</strong> Dennis Snoeck
-                    <p>.Knows tactics like the back of his hand and luxury even better, dreaming of his next seaside vacation.</p>
+                    <p>Knows tactics like the back of his hand and luxury even better, dreaming of his next seaside vacation.</p>
                 </li>
                 <li>
                     <strong>Director of Football Development and catering tycoon:</strong> Tom Hamerlinck
